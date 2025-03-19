@@ -19,7 +19,12 @@ html{
 .feedback{
     display: inline-block;
     padding: 10px;
+    color:rgb(209, 175, 80);
 }
 .hidden{
     display:none;
+}
+#game img{
+    scale: 150%;
+    margin: 15px;
 }

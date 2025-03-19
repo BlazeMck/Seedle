@@ -1,5 +1,5 @@
 const form = document.querySelector('form');
-const newFeedback = document.querySelectorAll('.newFeedback');
+const newFeedback = document.querySelector('.newFeedback');
 
 //Class for building every crop and their respective attributes
 class Crop {
