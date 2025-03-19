@@ -71,6 +71,8 @@ form.addEventListener('submit', e => {
 
     e.preventDefault();
 
+    let currentFeedback = newFeedback.innerHTML;
+
     console.log(form.guess.value);
     if(playing){
         let seasonSrc = '';
@@ -79,74 +81,88 @@ form.addEventListener('submit', e => {
         let timeSrc = '';
         let energySrc = '';
         let healthSrc = '';
-        let oldFeedback = `
-        
-        `
+        let guessSeason;
+        let guessCost;
+        let guessValue;
+        let guessTime;
+        let guessEnergy;
+        let guessHealth;
+        let currentFeedback = newFeedback.innerHTML;
+
         answerArray.forEach(element => {
             const lower = 'imgs/downArrow.jpeg';
             const higher = 'imgs/upArrow.jpeg';
             const correct = 'imgs/check.jpeg';
-            if (element.name === form.guess.value) {
+            if (element.name.toLowerCase() === form.guess.value.toLowerCase()) {
                 if (element.season === answer.season) {
-                    seasonSrc = "imgs/check.jpeg";
+                    seasonSrc = correct;
                 }
                 else if (element.season > answer.season) {
-                    seasonSrc = "imgs/downArrow.jpeg";
+                    seasonSrc = lower;
                 }
                 else if (element.season < answer.season) {
-                    seasonSrc = "imgs/upArrow.jpeg";
+                    seasonSrc = higher;
                 }
                 if (element.cost === answer.cost) {
-                    costSrc = "imgs/check.jpeg";
+                    costSrc = correct;
                 }
                 else if (element.cost > answer.cost) {
-                    costSrc = "imgs/downArrow.jpeg";
+                    costSrc = lower;
                 }
                 else if (element.cost < answer.cost) {
-                    costSrc = "imgs/upArrow.jpeg";
+                    costSrc = higher;
                 }
                 if (element.value === answer.value) {
-                    valueSrc = "imgs/check.jpeg";
+                    valueSrc = correct;
                 }
                 else if (element.value > answer.value) {
-                    valueSrc = "imgs/downArrow.jpeg";
+                    valueSrc = lower;
                 }
                 else if (element.value < answer.value) {
-                    valueSrc = "imgs/upArrow.jpeg";
+                    valueSrc = higher;
                 }
                 if (element.time === answer.time) {
-                    timeSrc = "imgs/check.jpeg";
+                    timeSrc = correct;
                 }
                 else if (element.time > answer.time) {
-                    timeSrc = "imgs/downArrow.jpeg";
+                    timeSrc = lower;
                 }
                 else if (element.time < answer.time) {
-                    timeSrc = "imgs/upArrow.jpeg";
+                    timeSrc = higher;
                 }
                 if (element.energy === answer.energy) {
-                    energySrc = "imgs/check.jpeg";
+                    energySrc = correct;
                 }
                 else if (element.energy > answer.energy) {
-                    energySrc = "imgs/downArrow.jpeg";
+                    energySrc = lower;
                 }
                 else if (element.energy < answer.energy) {
-                    energySrc = "imgs/upArrow.jpeg";
+                    energySrc = higher;
                 }
                 if (element.health === answer.health) {
-                    healthSrc = "imgs/check.jpeg";
+                    healthSrc = correct;
                 }
                 else if (element.health > answer.health) {
-                    healthSrc = "imgs/downArrow.jpeg";
+                    healthSrc = lower;
                 }
                 else if (element.health < answer.health) {
-                    healthSrc = "imgs/upArrow.jpeg";
+                    healthSrc = higher;
                 }
+                elementSeason = element.season;
+                elementCost = element.cost;
+                elementValue = element.value;
+                elementTime = element.time;
+                elementEnergy = element.energy;
+                elementHealth = element.health;
             }
         });
-        let feedback  = `<img src="${seasonSrc}" id="season"> <img src="${costSrc}" id="cost"> <img src="${valueSrc}" id="value"> <img src="${timeSrc}" id="time"> <img src="${energySrc}" id="energy"> <img src="${healthSrc}" id="health"><br>`;
+        let feedback  =  `<img src="${seasonSrc}" alt="${guessSeason}" id="season"> <img src="${costSrc}" alt="${guessCost}" id="cost"> 
+                          <img src="${valueSrc}" alt="${guessValue}" id="value"> <img src="${timeSrc}" alt="${guessTime}" id="time"> 
+                          <img src="${energySrc}" alt="${guessEnergy}" id="energy"> <img src="${healthSrc}" alt="${guessHealth}" id="health"><br><br><br><br>` + currentFeedback;
         attempts--;
         console.log(feedback);
         newFeedback.innerHTML = feedback;
+        form.guess.value = '';
         if (attempts === 0) {
             console.log('OUT OF ATTEMPTS! YOU LOSE!')
             playing = false;
