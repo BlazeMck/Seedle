@@ -143,8 +143,7 @@ form.addEventListener('submit', e => {
                 }
             }
         });
-        let feedback  = `<img src="${seasonSrc}" id="seasonImg"> <img src="${costSrc}" id="costImg"> <img src="${valueSrc}" id="valueImg"> <img src="${timeSrc}" id="timeImg"> <img src="${energySrc}" id="energyImg"> <img src="${healthSrc}" id="healthImg"><br>
-                         <div id="labels">Season &nbsp Cost &nbsp Value &nbsp Time &nbsp Energy Given &nbsp Health Given"`
+        let feedback  = `<img src="${seasonSrc}" id="season"> <img src="${costSrc}" id="cost"> <img src="${valueSrc}" id="value"> <img src="${timeSrc}" id="time"> <img src="${energySrc}" id="energy"> <img src="${healthSrc}" id="health"><br>`;
         attempts--;
         console.log(feedback);
         newFeedback.innerHTML = feedback;

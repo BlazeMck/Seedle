@@ -14,7 +14,6 @@ html{
 }
 #game{
     text-align: center;
-    
 }
 .feedback{
     display: inline-block;
@@ -26,5 +25,39 @@ html{
 }
 #game img{
     scale: 150%;
-    margin: 15px;
+    margin-top: 75px;
+    margin-left: 25px;
+}
+.labels{
+    color: rgb(233, 205, 199);
+    background-color: rgba(71, 49, 49, 0.836);
+    font-size: x-large;
+    font-weight: bolder;
+}
+#season{
+    position: fixed;
+    left: 30%;
+}
+#cost{
+    position: fixed;
+    left: 38%;
+}
+#value{
+    position: fixed;
+    left: 46%;
+}
+#time{
+    position: fixed;
+    left: 54%;
+}
+#energy{
+    position: absolute;
+    left: 62%;
+    text-wrap: wrap;
+    max-width: 80px;
+}
+#health{
+    position: fixed;
+    left: 70%;
+    max-width: 80px;
 }
