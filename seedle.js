@@ -1,5 +1,6 @@
 const form = document.querySelector('form');
 const newFeedback = document.querySelector('.newFeedback');
+const labels = document.querySelector('.labels');
 
 //Class for building every crop and their respective attributes
 class Crop {
@@ -87,6 +88,7 @@ form.addEventListener('submit', e => {
         let guessTime;
         let guessEnergy;
         let guessHealth;
+        let cropImage;
         let currentFeedback = newFeedback.innerHTML;
 
         answerArray.forEach(element => {
@@ -148,20 +150,25 @@ form.addEventListener('submit', e => {
                 else if (element.health < answer.health) {
                     healthSrc = higher;
                 }
-                elementSeason = element.season;
-                elementCost = element.cost;
-                elementValue = element.value;
-                elementTime = element.time;
-                elementEnergy = element.energy;
-                elementHealth = element.health;
+                guessSeason = element.season;
+                guessCost = element.cost;
+                guessValue = element.value;
+                guessTime = element.time;
+                guessEnergy = element.energy;
+                guessHealth = element.health;
+                cropImage = element.name;
+
             }
         });
         let feedback  =  `<img src="${seasonSrc}" alt="${guessSeason}" id="season"> <img src="${costSrc}" alt="${guessCost}" id="cost"> 
                           <img src="${valueSrc}" alt="${guessValue}" id="value"> <img src="${timeSrc}" alt="${guessTime}" id="time"> 
-                          <img src="${energySrc}" alt="${guessEnergy}" id="energy"> <img src="${healthSrc}" alt="${guessHealth}" id="health"><br><br><br><br>` + currentFeedback;
+                          <img src="${energySrc}" alt="${guessEnergy}" id="energy"> <img src="${healthSrc}" alt="${guessHealth}" id="health">
+                          <img src="imgs/crops/${cropImage}.png" alt="${cropImage}" id="thumbnail"><br><br><br><br>` + currentFeedback;
         attempts--;
         console.log(feedback);
         newFeedback.innerHTML = feedback;
+        labels.classList.remove('hidden');
+
         form.guess.value = '';
         if (attempts === 0) {
             console.log('OUT OF ATTEMPTS! YOU LOSE!')

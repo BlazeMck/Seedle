@@ -14,6 +14,11 @@ html{
 }
 #game{
     text-align: center;
+    background-color: rgba(71, 49, 49, 0.836);
+    margin-left:5%;
+    margin-right:5%;
+    height:60%;
+    padding-top:2%;
 }
 .feedback{
     display: inline-block;
@@ -30,34 +35,38 @@ html{
 }
 .labels{
     color: rgb(233, 205, 199);
-    background-color: rgba(71, 49, 49, 0.836);
+    
     font-size: x-large;
     font-weight: bolder;
 }
 #season{
     position: fixed;
-    left: 30%;
+    left: 28%;
 }
 #cost{
     position: fixed;
-    left: 38%;
+    left: 36%;
 }
 #value{
     position: fixed;
-    left: 46%;
+    left: 44%;
 }
 #time{
     position: fixed;
-    left: 54%;
+    left: 52%;
 }
 #energy{
     position: absolute;
-    left: 62%;
+    left: 60%;
     text-wrap: wrap;
     max-width: 80px;
 }
 #health{
     position: fixed;
-    left: 70%;
+    left: 68%;
     max-width: 80px;
+}
+#thumbnail{
+    position: fixed;
+    left: 76%;
 }
