@@ -1,6 +1,7 @@
 const form = document.querySelector('form');
 const newFeedback = document.querySelector('.newFeedback');
 const labels = document.querySelector('.labels');
+const input = document.querySelector('#cropInput');
 
 //Class for building every crop and their respective attributes
 class Crop {
@@ -175,4 +176,112 @@ form.addEventListener('submit', e => {
             playing = false;
         }
     }
+});
+
+form.addEventListener('keyup', e => {
+    if(/^season/.test(form.guess.value)){
+        let str = form.guess.value.split("season");
+        if(str[1].toLowerCase() === ":spring"){
+            answerArray.forEach(element => {
+                if (element.season === 0){
+                    console.log(element.name);
+                }
+            });
+        }
+        else if(str[1].toLowerCase() === ":summer"){
+            answerArray.forEach(element => {
+                if (element.season === 1){
+                    console.log(element.name);
+                }
+            });
+        }
+        else if(str[1].toLowerCase() === ":fall"){
+            answerArray.forEach(element => {
+                if (element.season === 2){
+                    console.log(element.name);
+                }
+            });
+        }
+        else if(str[1].toLowerCase() === ":winter"){
+            answerArray.forEach(element => {
+                if (element.season === 3){
+                    console.log(element.name);
+                }
+            });
+        }
+        else if(str[1].toLowerCase() === ">spring"){
+            answerArray.forEach(element => {
+                if (element.season > 0){
+                    console.log(element.name);
+                }
+            });
+        }
+        else if(str[1].toLowerCase() === ">summer"){
+            answerArray.forEach(element => {
+                if (element.season > 1){
+                    console.log(element.name);
+                }
+            });
+        }
+        else if(str[1].toLowerCase() === ">fall"){
+            answerArray.forEach(element => {
+                if (element.season > 2){
+                    console.log(element.name);
+                }
+            });
+        }
+        else if(str[1].toLowerCase() === "<summer"){
+            answerArray.forEach(element => {
+                if (element.season < 1){
+                    console.log(element.name);
+                }
+            });
+        }
+        else if(str[1].toLowerCase() === "<fall"){
+            answerArray.forEach(element => {
+                if (element.season < 2){
+                    console.log(element.name);
+                }
+            });
+        }
+        else if(str[1].toLowerCase() === "<winter"){
+            answerArray.forEach(element => {
+                if (element.season < 3){
+                    console.log(element.name);
+                }
+            });
+        }
+    }
+    else if(/^cost/.test(form.guess.value)){
+        console.log("Finding Cost");
+    }
+    else if(/^value/.test(form.guess.value)){
+        console.log("Finding Value");
+    }
+    else if(/^time/.test(form.guess.value)){
+        console.log("Finding Time");
+    }
+    else if(/^energy/.test(form.guess.value)){
+        console.log("Finding Energy");
+    }
+    else if(/^health/.test(form.guess.value)){
+        console.log("Finding Health");
+    }
+    else {
+        const compareValue = form.guess.value.toLowerCase().split("");
+        let compareArray = [];
+        answerArray.forEach(element => {
+            splitArray = element.name.toLowerCase().split("");
+            let matches = 0;
+            for(i = 0; i < compareValue.length; i++){
+                if(splitArray[i] === compareValue[i]){
+                    matches++;
+                }
+            }
+            if (matches === compareValue.length){
+                compareArray.push(element.name);
+            }
+        });
+        console.log(compareArray);
+    }   
 });
