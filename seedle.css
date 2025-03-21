@@ -14,12 +14,59 @@ html{
 }
 #game{
     text-align: center;
-    
+    background-color: rgba(71, 49, 49, 0.836);
+    margin-left:5%;
+    margin-right:5%;
+    height:60%;
+    padding-top:2%;
 }
 .feedback{
     display: inline-block;
     padding: 10px;
+    color:rgb(209, 175, 80);
 }
 .hidden{
     display:none;
+}
+#game img{
+    scale: 150%;
+    margin-top: 75px;
+    margin-left: 25px;
+}
+.labels{
+    color: rgb(233, 205, 199);
+    
+    font-size: x-large;
+    font-weight: bolder;
+}
+#season{
+    position: fixed;
+    left: 28%;
+}
+#cost{
+    position: fixed;
+    left: 36%;
+}
+#value{
+    position: fixed;
+    left: 44%;
+}
+#time{
+    position: fixed;
+    left: 52%;
+}
+#energy{
+    position: absolute;
+    left: 60%;
+    text-wrap: wrap;
+    max-width: 80px;
+}
+#health{
+    position: fixed;
+    left: 68%;
+    max-width: 80px;
+}
+#thumbnail{
+    position: fixed;
+    left: 76%;
 }
