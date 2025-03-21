@@ -179,97 +179,208 @@ form.addEventListener('submit', e => {
 });
 
 form.addEventListener('keyup', e => {
+    let autocompleteArray = [];
     if(/^season/.test(form.guess.value)){
         let str = form.guess.value.split("season");
         if(str[1].toLowerCase() === ":spring"){
             answerArray.forEach(element => {
                 if (element.season === 0){
-                    console.log(element.name);
+                    autocompleteArray.push(element.name);
                 }
             });
         }
         else if(str[1].toLowerCase() === ":summer"){
             answerArray.forEach(element => {
                 if (element.season === 1){
-                    console.log(element.name);
+                    autocompleteArray.push(element.name);
                 }
             });
         }
         else if(str[1].toLowerCase() === ":fall"){
             answerArray.forEach(element => {
                 if (element.season === 2){
-                    console.log(element.name);
+                    autocompleteArray.push(element.name);
                 }
             });
         }
         else if(str[1].toLowerCase() === ":winter"){
             answerArray.forEach(element => {
                 if (element.season === 3){
-                    console.log(element.name);
+                    autocompleteArray.push(element.name);
                 }
             });
         }
         else if(str[1].toLowerCase() === ">spring"){
             answerArray.forEach(element => {
                 if (element.season > 0){
-                    console.log(element.name);
+                    autocompleteArray.push(element.name);
                 }
             });
         }
         else if(str[1].toLowerCase() === ">summer"){
             answerArray.forEach(element => {
                 if (element.season > 1){
-                    console.log(element.name);
+                    autocompleteArray.push(element.name);
                 }
             });
         }
         else if(str[1].toLowerCase() === ">fall"){
             answerArray.forEach(element => {
                 if (element.season > 2){
-                    console.log(element.name);
+                    autocompleteArray.push(element.name);
                 }
             });
         }
         else if(str[1].toLowerCase() === "<summer"){
             answerArray.forEach(element => {
                 if (element.season < 1){
-                    console.log(element.name);
+                    autocompleteArray.push(element.name);
                 }
             });
         }
         else if(str[1].toLowerCase() === "<fall"){
             answerArray.forEach(element => {
                 if (element.season < 2){
-                    console.log(element.name);
+                    autocompleteArray.push(element.name);
                 }
             });
         }
         else if(str[1].toLowerCase() === "<winter"){
             answerArray.forEach(element => {
                 if (element.season < 3){
-                    console.log(element.name);
+                    autocompleteArray.push(element.name);
                 }
             });
         }
     }
     else if(/^cost/.test(form.guess.value)){
-        console.log("Finding Cost");
+        let str = form.guess.value.split("cost");
+        let symbol = str[1].split("")[0];
+        if(symbol === ":"){
+            answerArray.forEach(element => {
+                if(parseInt(form.guess.value.split(":")[1]) === element.cost){
+                    autocompleteArray.push(element.name);
+                }
+            });
+        }
+        else if(symbol === ">"){
+            answerArray.forEach(element => {
+                if(parseInt(form.guess.value.split(">")[1]) < element.cost){
+                    autocompleteArray.push(element.name);
+                }
+            });
+        }
+        else if(symbol === "<"){
+            answerArray.forEach(element => {
+                if(parseInt(form.guess.value.split("<")[1]) > element.cost){
+                    autocompleteArray.push(element.name);
+                }
+            });
+        }
+
     }
     else if(/^value/.test(form.guess.value)){
-        console.log("Finding Value");
+        let str = form.guess.value.split("value");
+        let symbol = str[1].split("")[0];
+        if(symbol === ":"){
+            answerArray.forEach(element => {
+                if(parseInt(form.guess.value.split(":")[1]) === element.value){
+                    autocompleteArray.push(element.name);
+                }
+            });
+        }
+        else if(symbol === ">"){
+            answerArray.forEach(element => {
+                if(parseInt(form.guess.value.split(">")[1]) < element.value){
+                    autocompleteArray.push(element.name);
+                }
+            });
+        }
+        else if(symbol === "<"){
+            answerArray.forEach(element => {
+                if(parseInt(form.guess.value.split("<")[1]) > element.value){
+                    autocompleteArray.push(element.name);
+                }
+            });
+        }
     }
     else if(/^time/.test(form.guess.value)){
-        console.log("Finding Time");
+        let str = form.guess.value.split("time");
+        let symbol = str[1].split("")[0];
+        if(symbol === ":"){
+            answerArray.forEach(element => {
+                if(parseInt(form.guess.value.split(":")[1]) === element.time){
+                    autocompleteArray.push(element.name);
+                }
+            });
+        }
+        else if(symbol === ">"){
+            answerArray.forEach(element => {
+                if(parseInt(form.guess.value.split(">")[1]) < element.time){
+                    autocompleteArray.push(element.name);
+                }
+            });
+        }
+        else if(symbol === "<"){
+            answerArray.forEach(element => {
+                if(parseInt(form.guess.value.split("<")[1]) > element.time){
+                    autocompleteArray.push(element.name);
+                }
+            });
+        }
     }
     else if(/^energy/.test(form.guess.value)){
-        console.log("Finding Energy");
+        let str = form.guess.value.split("energy");
+        let symbol = str[1].split("")[0];
+        if(symbol === ":"){
+            answerArray.forEach(element => {
+                if(parseInt(form.guess.value.split(":")[1]) === element.energy){
+                    autocompleteArray.push(element.name);
+                }
+            });
+        }
+        else if(symbol === ">"){
+            answerArray.forEach(element => {
+                if(parseInt(form.guess.value.split(">")[1]) < element.energy){
+                    autocompleteArray.push(element.name);
+                }
+            });
+        }
+        else if(symbol === "<"){
+            answerArray.forEach(element => {
+                if(parseInt(form.guess.value.split("<")[1]) > element.energy){
+                    autocompleteArray.push(element.name);
+                }
+            });
+        }
     }
     else if(/^health/.test(form.guess.value)){
-        console.log("Finding Health");
+        let str = form.guess.value.split("health");
+        let symbol = str[1].split("")[0];
+        if(symbol === ":"){
+            answerArray.forEach(element => {
+                if(parseInt(form.guess.value.split(":")[1]) === element.health){
+                    autocompleteArray.push(element.name);
+                }
+            });
+        }
+        else if(symbol === ">"){
+            answerArray.forEach(element => {
+                if(parseInt(form.guess.value.split(">")[1]) < element.health){
+                    autocompleteArray.push(element.name);
+                }
+            });
+        }
+        else if(symbol === "<"){
+            answerArray.forEach(element => {
+                if(parseInt(form.guess.value.split("<")[1]) > element.health){
+                    autocompleteArray.push(element.name);
+                }
+            });
+        }
     }
     else {
         const compareValue = form.guess.value.toLowerCase().split("");
-        let compareArray = [];
         answerArray.forEach(element => {
             splitArray = element.name.toLowerCase().split("");
             let matches = 0;
@@ -279,9 +390,9 @@ form.addEventListener('keyup', e => {
                 }
             }
             if (matches === compareValue.length){
-                compareArray.push(element.name);
+                autocompleteArray.push(element.name);
             }
         });
-        console.log(compareArray);
     }   
+    console.log(autocompleteArray);
 });
