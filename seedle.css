@@ -42,11 +42,11 @@ html{
 .hidden{
     display:none;
 }
-#game img{
+/* #game img{
     scale: 150%;
     margin-top: 75px;
     margin-left: 25px;
-}
+} */
 .labels{
     color: rgb(233, 205, 199);
     
@@ -83,4 +83,8 @@ html{
 #thumbnail{
     position: fixed;
     left: 76%;
+}
+div .squish{
+    scale: 100%;
+    left: 40px;    
 }

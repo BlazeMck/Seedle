@@ -17,12 +17,16 @@
 <body>
     <div id="game">
         <form autocomplete="off">
-            <input type="text" placeholder="Guess a Crop" name="guess"><br>
+            <div class="autocomplete" style="width:300px;">
+                <input type="text" placeholder="Guess a Crop" name="guess" id="cropInput">
+            </div><br>
         </form>
+        <div class="display">
         <div class="labels hidden">
             <div id="season">Season</div> <div id="cost">Cost</div> <div id="value">Value</div> <div id="time">Time</div> <div id="energy">Energy Given</div> <div id="health">Health Given</div>
         </div>
         <div class="newFeedback"></div>
+        </div>
     </div>
     <p></p>
     <script src="seedle.js"></script>

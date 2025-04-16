@@ -3,6 +3,18 @@ const newFeedback = document.querySelector('.newFeedback');
 const labels = document.querySelector('.labels');
 const input = document.querySelector('#cropInput');
 
+try {
+    if (window.innerWidth < 1110){
+        document.querySelector('.display').classList.add('squish');
+    }
+    // if (window.innerWidth > 1110){
+    //     document.querySelector('.display').classList.remove('squish');
+    // }
+} catch (error) {
+    console.log(error);
+}
+
+
 //Class for building every crop and their respective attributes
 class Crop {
     constructor(name, season, cost, value, time, energy, health) {
