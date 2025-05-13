@@ -3,16 +3,7 @@ const newFeedback = document.querySelector('.newFeedback');
 const labels = document.querySelector('.labels');
 const input = document.querySelector('#cropInput');
 
-try {
-    if (window.innerWidth < 1110){
-        document.querySelector('.display').classList.add('squish');
-    }
-    // if (window.innerWidth > 1110){
-    //     document.querySelector('.display').classList.remove('squish');
-    // }
-} catch (error) {
-    console.log(error);
-}
+
 
 
 //Class for building every crop and their respective attributes
@@ -82,6 +73,8 @@ let attempts = 6;
 let playing = true;
 
 form.addEventListener('submit', e => {
+
+    
 
     e.preventDefault();
 
@@ -173,7 +166,9 @@ form.addEventListener('submit', e => {
 
             }
         });
-        let feedback  =  `<img src="${seasonSrc}" alt="${guessSeason}" id="season"> <img src="${costSrc}" alt="${guessCost}" id="cost"> 
+        let feedback  =  `<span class="season">Season</span> <span class="cost">Cost</span> <span class="value">Value</span>
+                          <span class="time">Time</span> <span class="energy">Energy</span> <span class="health">Health</span><br>
+                          <img src="${seasonSrc}" alt="${guessSeason}" id="season"> <img src="${costSrc}" alt="${guessCost}" id="cost"> 
                           <img src="${valueSrc}" alt="${guessValue}" id="value"> <img src="${timeSrc}" alt="${guessTime}" id="time"> 
                           <img src="${energySrc}" alt="${guessEnergy}" id="energy"> <img src="${healthSrc}" alt="${guessHealth}" id="health">
                           <img src="imgs/crops/${cropImage}.png" alt="${cropImage}" id="thumbnail"><br><br><br><br>` + currentFeedback;
@@ -181,6 +176,22 @@ form.addEventListener('submit', e => {
         console.log(feedback);
         newFeedback.innerHTML = feedback;
         labels.classList.remove('hidden');
+
+        try {
+            if (window.innerWidth < 1110){
+                spans = document.querySelectorAll('span');
+                console.log(spans);
+                spans.forEach(item => {
+                    item.classList.add("squish");
+                })
+        
+            }
+            // if (window.innerWidth > 1110){
+            //     document.querySelector('.display').classList.remove('squish');
+            // }
+        } catch (error) {
+            console.log(error);
+        }
 
         form.guess.value = '';
         if (attempts === 0) {
